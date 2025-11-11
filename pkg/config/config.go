@@ -1,7 +1,7 @@
 package config
 
 import (
-	consts "GrpcMessangerMsgServer/pkg/constants"
+	consts "GrpcMessangerMsgServer/pkg/Constants"
 	"gopkg.in/yaml.v3"
 	"os"
 	"runtime"

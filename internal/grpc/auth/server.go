@@ -43,6 +43,7 @@ func (s *serverAPI) Connect(stream chat.Chat_ConnectServer) error {
 
 	clientChan := make(chan *chat.Message, 500)
 	s.clients.Store(clientID, clientChan)
+	s.logger.Info(fmt.Sprintf("client:%s - client connected", clientID), logger.GetPlace())
 	defer func() {
 		s.clients.Delete(clientID)
 		close(clientChan)
@@ -69,7 +70,7 @@ func (s *serverAPI) Connect(stream chat.Chat_ConnectServer) error {
 	for {
 		messg, errRecv := stream.Recv()
 		if errRecv != nil {
-			s.logger.Error(fmt.Sprintf("Receive message error: %v", errRecv), logger.GetPlace())
+			s.logger.Warning(fmt.Sprintf("User '%s' disconnect from  server: %v", clientID, errRecv), logger.GetPlace())
 			return err
 		}
 

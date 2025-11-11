@@ -1,0 +1,6 @@
+services:
+  message_service:
+    build: .
+    container_name: message_service
+    ports:
+      - "12911:12911"

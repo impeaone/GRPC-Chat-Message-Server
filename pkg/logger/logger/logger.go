@@ -1,8 +1,8 @@
 package logger
 
 import (
+	consts "GrpcMessangerMsgServer/pkg/Constants"
 	"GrpcMessangerMsgServer/pkg/Error"
-	consts "GrpcMessangerMsgServer/pkg/constants"
 	"log"
 	"os"
 	"runtime"
